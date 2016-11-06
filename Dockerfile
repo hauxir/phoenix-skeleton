@@ -12,8 +12,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # install dependencies
-COPY mix.* /usr/src/app/
-COPY config /usr/src/app/
+COPY . /usr/src/app/
 RUN mix do deps.get, deps.compile
+RUN mix deps.get
 
 CMD ["mix", "phoenix.server"]
