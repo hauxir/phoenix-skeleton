@@ -1,4 +1,4 @@
-FROM voidlock/elixir:1.1
+FROM elixir:1.2.6
 
 # install psql
 RUN apt-get update && apt-get install -y postgresql-client
@@ -8,7 +8,7 @@ RUN mix local.hex --force && \
     mix local.rebar --force
 
 # configure work directory
-RUN mkdir -p /app
+RUN mkdir /app
 WORKDIR /app
 
 # install dependencies
