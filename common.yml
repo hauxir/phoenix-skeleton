@@ -1,0 +1,14 @@
+db:
+  image: postgres:9.4.5
+  ports:
+    - 5432
+  environment:
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: password
+
+cardrooms:
+  build: .
+  ports:
+    - "4000:4000"
+  environment:
+    DATABASE_URL: ecto://user:password@db/cardrooms

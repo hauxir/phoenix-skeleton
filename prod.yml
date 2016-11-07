@@ -2,12 +2,9 @@ cardrooms:
   extends:
     file: common.yml
     service: cardrooms
-  volumes:
-    - .:/app
-  links:
-    - db:db
 
 db:
   extends:
     file: common.yml
     service: db
+    MIX_ENV: "prod"
