@@ -15,5 +15,6 @@ local:
     VIRTUAL_HOST: blah
     VIRTUAL_PORT: 4000
     DATABASE_URL: ecto://user:password@db/rest_api_dev
+    MIX_ENV: "${MIX_ENV}"
   links:
     - db:db

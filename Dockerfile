@@ -8,12 +8,12 @@ RUN mix local.hex --force && \
     mix local.rebar --force
 
 # configure work directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+WORKDIR /app
 
 # install dependencies
-COPY . /usr/src/app/
-RUN mix do deps.get, deps.compile
+COPY . /app
 RUN mix deps.get
+RUN MIX_ENV=prod mix compile
 
 CMD ["mix", "phoenix.server"]

@@ -46,6 +46,7 @@ defmodule RestApi.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+     "stuff": ["compile", "phoenix.server"],
      "ecto.reset": ["ecto.drop", "ecto.setup"]]
   end
 end
