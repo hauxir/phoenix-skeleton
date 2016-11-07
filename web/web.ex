@@ -1,12 +1,12 @@
-defmodule RestApi.Web do
+defmodule Cardrooms.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use RestApi.Web, :controller
-      use RestApi.Web, :view
+      use Cardrooms.Web, :controller
+      use Cardrooms.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -18,10 +18,11 @@ defmodule RestApi.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
 
+      import Ecto
       import Ecto.Changeset
-      import Ecto.Query, only: [from: 1, from: 2]
+      import Ecto.Query
     end
   end
 
@@ -29,11 +30,12 @@ defmodule RestApi.Web do
     quote do
       use Phoenix.Controller
 
-      alias RestApi.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
+      alias Cardrooms.Repo
+      import Ecto
+      import Ecto.Query
 
-      import RestApi.Router.Helpers
+      import Cardrooms.Router.Helpers
+      import Cardrooms.Gettext
     end
   end
 
@@ -47,7 +49,9 @@ defmodule RestApi.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import RestApi.Router.Helpers
+      import Cardrooms.Router.Helpers
+      import Cardrooms.ErrorHelpers
+      import Cardrooms.Gettext
     end
   end
 
@@ -61,9 +65,10 @@ defmodule RestApi.Web do
     quote do
       use Phoenix.Channel
 
-      alias RestApi.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
+      alias Cardrooms.Repo
+      import Ecto
+      import Ecto.Query
+      import Cardrooms.Gettext
     end
   end
 

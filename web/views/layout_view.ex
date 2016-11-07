@@ -1,3 +1,3 @@
-defmodule RestApi.LayoutView do
-  use RestApi.Web, :view
+defmodule Cardrooms.LayoutView do
+  use Cardrooms.Web, :view
 end

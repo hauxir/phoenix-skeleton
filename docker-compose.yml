@@ -1,4 +1,4 @@
-db: &DB
+db:
   image: postgres:9.4.5
   ports:
     - 5432
@@ -8,13 +8,10 @@ db: &DB
 
 local:
   build: .
-  command: sh -c "mix phoenix.server"
   ports:
     - "4000:4000"
-  environment: &ENV
-    VIRTUAL_HOST: blah
-    VIRTUAL_PORT: 4000
-    DATABASE_URL: ecto://user:password@db/rest_api_dev
+  environment:
+    DATABASE_URL: ecto://user:password@db/cardrooms
     MIX_ENV: "${MIX_ENV}"
   links:
     - db:db
